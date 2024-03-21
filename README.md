@@ -1,4 +1,10 @@
 # SEM2_CA1_
+##SparkContext
+sc
+
+sc.master
+'local[*]'
+
 
 import math
 import seaborn as sns
