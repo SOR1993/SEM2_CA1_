@@ -5,7 +5,6 @@ sc
 sc.master
 'local[*]'
 
-
 import math
 import seaborn as sns
 import numpy as np
@@ -59,5 +58,52 @@ plt.plot(df_new['Date'], df_new['Price'])
 plt.xlabel('Year', fontsize=18)
 plt.ylabel('Price USD ($)', fontsize=18)
 plt.show
+
+data = df_new.filter(['Price'])
+
+dataset = data.values
+
+training_data_len = math.ceil( len(dataset) * .8 )
+
+training_data_len
+
+scaler = MinMaxScaler(feature_range=(0,1))
+dataset = scaler.fit_transform(dataset)
+
+#scaled_data
+dataset
+
+train_data = dataset[0:training_data_len , :]
+
+x_train =[]
+y_train =[]
+
+for i in range(20, len(train_data)):
+    x_train.append(train_data[i-20:i,0])
+    y_train.append(train_data[i,0])
+    
+x_train, y_train = np.array(x_train), np.array(y_train)
+
+x_train =np.reshape(x_train,(x_train.shape[0], x_train.shape[1],1))
+x_train.shape
+
+model = Sequential()
+model.add(LSTM(10, return_sequences = True, input_shape = (x_train.shape[1], 1)))
+model.add(LSTM(10, return_sequences = False))
+model.add(Dense(5))
+model.add(Dense(1))
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
