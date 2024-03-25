@@ -171,7 +171,7 @@ stock_price_pred.head(20)
 
 
 
-## Model 2
+## Model 2 (TimeStep=40)
 # we create a df 'data' with just the price data 
 data = df.filter(['Price'])
 # the dataframe is then converted to a numpy array (A2 dimensional matrix)
