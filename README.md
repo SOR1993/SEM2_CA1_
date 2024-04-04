@@ -1,7 +1,9 @@
 # SEM2_CA1_
-##SparkContext
+# SparkContext object- automatically create when a Spark application is started. Connection to Spark cluster
 sc
+# SparkContext has a Master property
 sc.master
+# 'local[*]' indicates that spark is running in local mode, Spark is running locally on the VM where the code is executed.
 'local[*]'
 # import relevant libraries
 import math
