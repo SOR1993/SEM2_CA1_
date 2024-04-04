@@ -149,14 +149,14 @@ train_data = dataset[0:training_data_len , :]
 x_train =[] # independent variables
 y_train =[] # dependent variable
 # create a loop to iterate through the training data to split the data into X_train and y_train
-# the data has been split into iterations of 20 in line with there being approx. 20 trading days per month
+# the data has been split into iterations of 40 in line with there being approx. 20 trading days per month
 # this is a hyperparamter which can be tuned depending on the aim of the research
 for i in range(40, len(train_data)):
     x_train.append(train_data[i-40:i,0])
     y_train.append(train_data[i,0])
 # convert x_train and y_train to numpy arrays to train the LTSM Neural Net Model
 x_train, y_train = np.array(x_train), np.array(y_train)
-# LTSM Neural Model expects three dimensions; number of samples (1188), number of time steps (20) and number of features columns (1)
+# LTSM Neural Model expects three dimensions; number of samples (1188), number of time steps (40) and number of features columns (1)
 x_train =np.reshape(x_train,(x_train.shape[0], x_train.shape[1],1))
 x_train.shape
 # build the LTSM Neural Net Model
@@ -234,7 +234,7 @@ train_data = dataset[0:training_data_len , :]
 x_train =[] # independent variables
 y_train =[] # dependent variable
 # create a loop to iterate through the training data to split the data into X_train and y_train
-# the data has been split into iterations of 20 in line with there being approx. 20 trading days per month
+# the data has been split into iterations of 60 in line with there being approx. 20 trading days per month
 # this is a hyperparamter which can be tuned depending on the aim of the research
 for i in range(60, len(train_data)):
     x_train.append(train_data[i-60:i,0])
